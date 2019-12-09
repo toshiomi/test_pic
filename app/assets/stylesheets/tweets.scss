@@ -1,7 +1,7 @@
 .tweet_main{
   .tweet_box{
     width: 700px;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 0px 150px;
     background-color: beige;
     .tweet_text{
@@ -12,6 +12,7 @@
     }
     .tweet_name{
       display: block;
+      text-align: end;
     }
   }
 }
