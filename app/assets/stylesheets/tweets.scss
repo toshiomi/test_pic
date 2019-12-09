@@ -1,0 +1,18 @@
+.tweet_main{
+  .tweet_box{
+    width: 700px;
+    margin: 10px auto;
+    padding: 0px 150px;
+    background-color: beige;
+    .tweet_text{
+      display:block;
+    }
+    .tweet_image{
+      display: block;
+    }
+    .tweet_name{
+      display: block;
+      text-align: end;
+    }
+  }
+}

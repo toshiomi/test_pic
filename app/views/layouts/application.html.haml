@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TestPic
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.header
+      .header_bar
+        %h1.header_title
+          = link_to root_path do
+            テスト
+        .header_btn_box
+          %button.new_tweet_btn
+            = link_to root_path do
+              新規投稿
+          %button.user_btn
+            = link_to root_path do
+              新規登録
+    = yield
