@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   resources :tweets
-  # get 'tweets' => 'tweets#index'
+  root 'tweets#index'
 end
