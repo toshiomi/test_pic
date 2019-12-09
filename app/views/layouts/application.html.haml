@@ -13,10 +13,11 @@
         %h1.header_title
           = link_to root_path do
             テスト
-        %button.new_tweet_btn
-          = link_to root_path do
-            新規投稿
-        %button.user_btn
-          = link_to root_path do
-            新規登録
+        .header_btn_box
+          %button.new_tweet_btn
+            = link_to root_path do
+              新規投稿
+          %button.user_btn
+            = link_to root_path do
+              新規登録
     = yield
