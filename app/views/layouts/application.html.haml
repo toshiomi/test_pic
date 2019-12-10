@@ -14,10 +14,18 @@
           = link_to root_path do
             テスト
         .header_btn_box
-          %button.new_tweet_btn
-            = link_to new_tweet_path do
-              新規投稿
-          %button.user_btn
-            = link_to root_path do
-              新規登録
+          - if user_signed_in?
+            %button.new_btn
+              = link_to new_tweet_path do
+                新規投稿
+            %button.user_btn
+              = link_to destroy_user_session_path,method: :delete do
+                ログアウト
+          - else
+            %button.new_btn
+              = link_to new_user_registration_path do
+                新規登録
+            %button.user_btn
+              = link_to new_user_session_path do
+                ログイン
     = yield
