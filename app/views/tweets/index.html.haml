@@ -4,3 +4,4 @@
       %span.tweet_text #{tweet.text}
       = image_tag(tweet.image, class: "tweet_image", size:"400x300")
       %span.tweet_name #{tweet.name}
+= paginate(@tweets)
