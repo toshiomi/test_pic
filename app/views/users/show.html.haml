@@ -1,0 +1,8 @@
+#{@name}の投稿一覧
+.tweet_main
+  - @tweets.each do |tweet|
+    .tweet_box
+      %span.tweet_text #{tweet.text}
+      = image_tag(tweet.image, class: "tweet_image", size:"400x300")
+      %span.tweet_name #{tweet.name}
+= paginate(@tweets)
