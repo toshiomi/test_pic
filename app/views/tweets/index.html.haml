@@ -1,7 +1,13 @@
 .tweet_main
   - @tweets.each do |tweet|
     .tweet_box
-      %span.tweet_text #{tweet.text}
+      - if user_signed_in? && current_user.id == tweet.user_id
+        %button.tweet_btn
+          = link_to "削除", tweet_path(tweet.id),method: :delete
+        %button.tweet_btn
+          = link_to "編集", edit_tweet_path(tweet.id)
+      %span.tweet_text #{tweet.name}
       = image_tag(tweet.image, class: "tweet_image", size:"400x300")
-      %span.tweet_name #{tweet.name}
+      %span.tweet_text #{tweet.text}
+      %span.tweet_name #{tweet.user.name}
 = paginate(@tweets)

@@ -11,24 +11,18 @@
     %header.header
       .header_bar
         %h1.header_title
-          = link_to root_path do
-            テスト
+          = link_to "テスト", root_path
         .header_btn_box
           - if user_signed_in?
             %button.new_btn
-              = link_to new_tweet_path do
-                新規投稿
+              = link_to "新規投稿", new_tweet_path
             %button.user_btn
-              = link_to user_path id: current_user.id do
-                マイページ
+              = link_to "マイページ", user_path(id: current_user.id)
             %button.user_btn
-              = link_to destroy_user_session_path,method: :delete do
-                ログアウト
+              = link_to "ログアウト", destroy_user_session_path,method: :delete
           - else
             %button.new_btn
-              = link_to new_user_registration_path do
-                新規登録
+              = link_to "新規登録", new_user_registration_path
             %button.user_btn
-              = link_to new_user_session_path do
-                ログイン
+              = link_to "ログイン", new_user_session_path
     = yield
