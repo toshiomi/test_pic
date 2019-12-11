@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
-  before_action :log_in_cheak, except: [:index,:show]
+  before_action :log_in_check, except: [:index,:show]
   before_action :set_params, only: [:show,:edit,:update,:destroy]
+  before_action :status_check,only: [:create, :update]
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(5)
@@ -30,14 +31,25 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.require(:tweet).permit(:name,:text,:image).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:name,:text,:image,:h,:a,:b,:c,:d,:s).merge(user_id: current_user.id)
   end
 
   def set_params
     @tweet = Tweet.find(params[:id])
   end
 
-  def log_in_cheak
+  def log_in_check
     redirect_to root_path unless user_signed_in?
   end
+
+  def status_check
+    if tweet_params[:h] == "" || tweet_params[:a] == "" || tweet_params[:b] == "" || tweet_params[:c] == "" || tweet_params[:d] == "" || tweet_params[:s] == ""
+      if params[:id]
+        redirect_to edit_tweet_path
+      else
+        redirect_to new_tweet_path
+      end
+    end
+  end
+  
 end

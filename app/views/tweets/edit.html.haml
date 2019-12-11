@@ -2,4 +2,16 @@
   = f.text_field :name, placeholder: "タイトル"
   = f.text_field :image, placeholder: "画像のURL"
   = f.text_area :text, placeholder: "テキスト"
+  HP:
+  = f.number_field :h, placeholder: "HP"
+  攻撃:
+  = f.number_field :a, placeholder: "攻撃"
+  防御:
+  = f.number_field :b, placeholder: "防御"
+  特攻:
+  = f.number_field :c, placeholder: "特攻"
+  特防:
+  = f.number_field :d, placeholder: "特防"
+  素早さ:
+  = f.number_field :s, placeholder: "素早さ"
   = f.submit "送信する"

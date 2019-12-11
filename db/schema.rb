@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 2019_12_11_065005) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "user_id"
-    t.integer "h", default: 0
-    t.integer "a", default: 0
-    t.integer "b", default: 0
-    t.integer "c", default: 0
-    t.integer "d", default: 0
-    t.integer "s", default: 0
+    t.integer "h", default: 0, null: false
+    t.integer "a", default: 0, null: false
+    t.integer "b", default: 0, null: false
+    t.integer "c", default: 0, null: false
+    t.integer "d", default: 0, null: false
+    t.integer "s", default: 0, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
