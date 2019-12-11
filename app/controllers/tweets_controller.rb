@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
-  before_action :log_in_cheak, except: :index
-  before_action :set_params, only:[:edit,:update,:destroy]
+  before_action :log_in_cheak, except: [:index,:show]
+  before_action :set_params, only: [:show,:edit,:update,:destroy]
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(5)
@@ -12,6 +12,9 @@ class TweetsController < ApplicationController
 
   def create
     Tweet.create(tweet_params)
+  end
+
+  def show
   end
 
   def edit
