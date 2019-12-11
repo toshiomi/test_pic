@@ -18,6 +18,7 @@ class TweetsController < ApplicationController
   end
 
   def update
+    @tweet.update(tweet_params) if @tweet.user_id == current_user.id
   end
 
   def destroy
