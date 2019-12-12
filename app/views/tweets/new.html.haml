@@ -1,7 +1,10 @@
 = form_with model: @tweet, method: :post, local: true do |f|
-  = f.text_field :name, placeholder: "タイトル"
+  名前:
+  = f.text_field :name, placeholder: "名前"
+  画像:
   = f.text_field :image, placeholder: "画像のURL"
-  = f.text_area :text, placeholder: "テキスト"
+  メモ:
+  = f.text_area :text, placeholder: "メモ"
   HP:
   = f.number_field :h, placeholder: "HP"
   攻撃:
@@ -14,4 +17,6 @@
   = f.number_field :d, placeholder: "特防"
   素早さ:
   = f.number_field :s, placeholder: "素早さ"
+  性格:
+  = f.collection_select :personality_id, Personality.all, :id, :name
   = f.submit "送信する"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_065005) do
+ActiveRecord::Schema.define(version: 2019_12_12_094421) do
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_065005) do
     t.integer "c", default: 0, null: false
     t.integer "d", default: 0, null: false
     t.integer "s", default: 0, null: false
+    t.integer "personality_id", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
