@@ -12,6 +12,7 @@
       - unless tweet.image == ""
         = image_tag(tweet.image, class: "tweet_image", size:"400x300")
       %span.tweet_text #{tweet.text}
+      %span.tweet_text #{tweet.personality.name}
       %span.tweet_text [努力値] H:#{tweet.h} A:#{tweet.a} B:#{tweet.b} C:#{tweet.c} D:#{tweet.d} S:#{tweet.s}
       %span.tweet_name #{tweet.user.name}
 = paginate(@tweets)

@@ -5,6 +5,8 @@
   = f.text_field :image, placeholder: "画像のURL"
   メモ:
   = f.text_area :text, placeholder: "メモ"
+  性格:
+  = f.collection_select :personality_id, Personality.all, :id, :name
   HP:
   = f.number_field :h, placeholder: "HP"
   攻撃:
