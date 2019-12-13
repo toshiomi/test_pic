@@ -11,7 +11,7 @@
       - if user_signed_in?
         - if current_user.already_liked?(tweet)
           %button.tweet_btn
-            = link_to "いいねを取り消す", tweet_like_path(tweet.id),method: :delete
+            = link_to "いいねを取り消す", tweet_like_path(tweet.id, current_user.id),method: :delete
         - else
           %button.tweet_btn
             = link_to "いいね", new_tweet_like_path(tweet)
