@@ -44,11 +44,7 @@ class TweetsController < ApplicationController
 
   def status_check
     if tweet_params[:h] == "" || tweet_params[:a] == "" || tweet_params[:b] == "" || tweet_params[:c] == "" || tweet_params[:d] == "" || tweet_params[:s] == ""
-      if params[:id]
-        redirect_to edit_tweet_path
-      else
-        redirect_to new_tweet_path
-      end
+      redirect_back(fallback_location: root_path)
     end
   end
   
