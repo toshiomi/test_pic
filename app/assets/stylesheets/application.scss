@@ -1,6 +1,19 @@
+@import "font-awesome";
 @import "header";
 @import "tweets";
 
 *{
   box-sizing: border-box;
+  text-decoration: none;
+}
+
+.log_in_on_heart{
+  color: red;
+}
+.log_in_off_heart{
+  color: gray;
+}
+
+.log_out_heart{
+  color: pink;
 }

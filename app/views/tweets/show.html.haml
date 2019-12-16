@@ -1,0 +1,32 @@
+.tweet_main
+  .tweet_box
+    - if user_signed_in? && current_user.id == @tweet.user_id
+      %button.tweet_btn
+        = link_to "削除", tweet_path(@tweet.id),method: :delete
+      %button.tweet_btn
+        = link_to "編集", edit_tweet_path(@tweet.id)
+    - if user_signed_in?
+      - if current_user.already_liked?(@tweet)
+        = link_to tweet_like_path(@tweet.id, current_user.id),method: :delete do
+          = fa_icon "heart",class: :log_in_on_heart
+      - else
+        = link_to new_tweet_like_path(@tweet) do
+          = fa_icon "heart",class: :log_in_off_heart
+    - else
+      = fa_icon "heart",class: :log_out_heart
+    #{@tweet.likes.count}
+    %span.tweet_text #{@tweet.name}
+    - unless @tweet.image == ""
+      = image_tag(@tweet.image, class: "tweet_image", size:"400x300")
+    %span.tweet_text #{@tweet.text}
+    %span.tweet_text #{@tweet.personality.name}
+    %span.tweet_text [努力値] H:#{@tweet.h} A:#{@tweet.a} B:#{@tweet.b} C:#{@tweet.c} D:#{@tweet.d} S:#{@tweet.s}
+    %span.tweet_name #{@tweet.user.name}
+  .comment_box
+    - if user_signed_in?
+      = form_with url: tweet_comments_path(@tweet.id), method: :post, local: true do |f|
+        = f.text_area :text
+        = f.submit "コメントする"
+    - if @comments
+      - @comments.each do |comment|
+        %span.tweet_text #{comment.user.name}:#{comment.text}
