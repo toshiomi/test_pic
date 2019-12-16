@@ -25,7 +25,7 @@
   .comment_box
     - if user_signed_in?
       = form_with url: tweet_comments_path(@tweet.id), method: :post, local: true do |f|
-        = f.text_area :text
+        = f.text_area :text, placeholder: "コメントを入力"
         = f.submit "コメントする"
     - if @comments
       - @comments.each do |comment|

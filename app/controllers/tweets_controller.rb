@@ -30,6 +30,10 @@ class TweetsController < ApplicationController
     @tweet.destroy if @tweet.user_id == current_user.id
   end
 
+  def search
+    @tweets = Tweet.search(params[:keyword])
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:name,:text,:image,:h,:a,:b,:c,:d,:s,:personality_id).merge(user_id: current_user.id)
