@@ -2,16 +2,5 @@
 .tweet_main
   - @tweets.each do |tweet|
     .tweet_box
-      %button.tweet_btn
-        = link_to "詳細", tweet_path(tweet.id),method: :get
-      %button.tweet_btn
-        = link_to "削除", tweet_path(tweet.id),method: :delete
-      %button.tweet_btn
-        = link_to "編集", edit_tweet_path(tweet.id)
-      %span.tweet_text #{tweet.name}
-      - unless tweet.image == ""
-        = image_tag(tweet.image, class: "tweet_image", size:"400x300")
-      %span.tweet_text #{tweet.text}
-      %span.tweet_text #{tweet.personality.name}
-      %span.tweet_text [努力値] H:#{tweet.h} A:#{tweet.a} B:#{tweet.b} C:#{tweet.c} D:#{tweet.d} S:#{tweet.s}
-= paginate(@tweets)
+      = render partial: "tweets/tweet", locals: { tweet: tweet }
+  = paginate(@tweets)

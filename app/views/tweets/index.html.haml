@@ -1,13 +1,6 @@
 .tweet_main
   - @tweets.each do |tweet|
     .tweet_box
-      %button.tweet_btn
-        = link_to "詳細", tweet_path(tweet.id),method: :get
-      - if user_signed_in? && current_user.id == tweet.user_id
-        %button.tweet_btn
-          = link_to "削除", tweet_path(tweet.id),method: :delete
-        %button.tweet_btn
-          = link_to "編集", edit_tweet_path(tweet.id)
       - if user_signed_in?
         - if current_user.already_liked?(tweet)
           = link_to tweet_like_path(tweet.id, current_user.id),method: :delete do
@@ -18,11 +11,6 @@
       - else
         = fa_icon "heart",class: :log_out_heart
       #{tweet.likes.count}
-      %span.tweet_text #{tweet.name}
-      - unless tweet.image == ""
-        = image_tag(tweet.image, class: "tweet_image", size:"400x300")
-      %span.tweet_text #{tweet.text}
-      %span.tweet_text #{tweet.personality.name}
-      %span.tweet_text [努力値] H:#{tweet.h} A:#{tweet.a} B:#{tweet.b} C:#{tweet.c} D:#{tweet.d} S:#{tweet.s}
+      = render partial: "tweet", locals: { tweet: tweet }
       %span.tweet_name #{tweet.user.name}
-= paginate(@tweets)
+  = paginate(@tweets)
