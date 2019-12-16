@@ -16,6 +16,7 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @comments = @tweet.comments.includes(:user)
   end
 
   def edit

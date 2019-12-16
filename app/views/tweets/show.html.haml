@@ -27,3 +27,6 @@
       = form_with url: tweet_comments_path(@tweet.id), method: :post, local: true do |f|
         = f.text_area :text
         = f.submit "コメントする"
+    - if @comments
+      - @comments.each do |comment|
+        %span.tweet_text #{comment.user.name}:#{comment.text}
