@@ -32,6 +32,10 @@ class TweetsController < ApplicationController
 
   def search
     @tweets = Tweet.search(params[:keyword])
+    respond_to do |f|
+      f.html
+      f.json
+    end
   end
 
   private
