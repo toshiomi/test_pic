@@ -10,6 +10,10 @@ $(function () {
                           <a href="/tweets/${hikisuu.id}/edit">編集</a>
                         </button>` : "";
 
+    var images = hikisuu.image == "" ?
+      "" : `<img class="tweet_image" src="${hikisuu.image}" width="400" height="300" />
+                `;
+
     var html = `<i class="fa fa-heart log_out_heart"></i>
                   ${hikisuu.like_counts}
                   <button class='tweet_btn'>
@@ -17,7 +21,7 @@ $(function () {
                   </button>
                   ${CurrentUserBtn}
                   <span class='tweet_text'>${hikisuu.name}</span>
-                  <img class="tweet_image" src="${hikisuu.image}" width="400" height="300" />
+                  ${images}
                   <span class='tweet_text'>${hikisuu.text}</span>
                   <span class='tweet_text'>${hikisuu.personality_id}</span>
                   <span class='tweet_text'>[努力値] H:${hikisuu.h} A:${hikisuu.a} B:${hikisuu.b} C:${hikisuu.c} D:${hikisuu.d} S:${hikisuu.s}</span>
