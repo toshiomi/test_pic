@@ -13,6 +13,5 @@ json.array! @tweets do |tweet|
   json.s tweet.s
   json.personality_id tweet.personality_id
   json.current_user_id current_user.id
-  json.like tweet.likes
   json.like_counts tweet.likes.count
 end

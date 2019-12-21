@@ -1,36 +1,29 @@
 $(function () {
-  var search_list = $(".search_field");
-
-  function checkCurrentUserAndBuildHtml(tweet) {
-    if (tweet.user_id == tweet.current_user_id) {
-
-    }
-  }
-
-  function checkLikeBuildHtml(tweet) {
-    if
-  }
+  var search_list = $(".tweet_box");
 
   function searchedTweet(hikisuu) {
-    var html = `<div class='tweet_box'>
-                ${checkCurrentUserAndBuildHtml(hikisuu)}
+    var CurrentUserBtn = hikisuu.user_id == hikisuu.current_user_id ?
+      `<button class='tweet_btn'>
+                          <a rel="nofollow" data-method="delete" href="/tweets/${hikisuu.id}">削除</a>
+                        </button>
+                        <button class='tweet_btn'>
+                          <a href="/tweets/${hikisuu.id}/edit">編集</a>
+                        </button>` : "";
+
+    var html = `<i class="fa fa-heart log_out_heart"></i>
                   ${hikisuu.like_counts}
-                <button class='tweet_btn'>
-                  <a data-method="get" href="/tweets/${id}">詳細</a>
-                </button>
-                <button class='tweet_btn'>
-                  <a rel="nofollow" data-method="delete" href="/tweets/${id}">削除</a>
-                </button>
-                <button class='tweet_btn'>
-                <a href="/tweets/12/edit">編集</a>
-                </button>
-                <span class='tweet_text'>ガブリアス</span>
-                <span class='tweet_text'></span>
-                <span class='tweet_text'>いじっぱり(A↑C↓)</span>
-                <span class='tweet_text'>[努力値] H:0 A:0 B:0 C:0 D:0 S:0</span>
-                
-                <span class='tweet_name'>test</span>
-              </div>`
+                  <button class='tweet_btn'>
+                    <a data-method="get" href="/tweets/${hikisuu.id}">詳細</a>
+                  </button>
+                  ${CurrentUserBtn}
+                  <span class='tweet_text'>${hikisuu.name}</span>
+                  <img class="tweet_image" src="${hikisuu.image}" width="400" height="300" />
+                  <span class='tweet_text'>${hikisuu.text}</span>
+                  <span class='tweet_text'>${hikisuu.personality_id}</span>
+                  <span class='tweet_text'>[努力値] H:${hikisuu.h} A:${hikisuu.a} B:${hikisuu.b} C:${hikisuu.c} D:${hikisuu.d} S:${hikisuu.s}</span>
+                  <span class='tweet_name'>${hikisuu.user_name}</span>
+                </div>`
+    search_list.append(html);
   }
 
   function searchError(message) {
