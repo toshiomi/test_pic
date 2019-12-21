@@ -23,10 +23,9 @@ $(function () {
                   <span class='tweet_text'>${hikisuu.name}</span>
                   ${images}
                   <span class='tweet_text'>${hikisuu.text}</span>
-                  <span class='tweet_text'>${hikisuu.personality_id}</span>
+                  <span class='tweet_text'>${hikisuu.personality}</span>
                   <span class='tweet_text'>[努力値] H:${hikisuu.h} A:${hikisuu.a} B:${hikisuu.b} C:${hikisuu.c} D:${hikisuu.d} S:${hikisuu.s}</span>
-                  <span class='tweet_name'>${hikisuu.user_name}</span>
-                </div>`
+                  <span class='tweet_name'>${hikisuu.user_name}</span>`
     search_list.append(html);
   }
 
@@ -34,6 +33,7 @@ $(function () {
     var html = `<div class='name'>${message}</div>`
     search_list.append(html);
   }
+
   $(".search_field").on("keyup", function () {
     var input = $(".search_field").val();
     $.ajax({
