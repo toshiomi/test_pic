@@ -15,4 +15,30 @@
       text-align: end;
     }
   }
+  .comment_box{
+    .comment_area{
+      display: block;
+      width:700px;
+      height:100px;
+      margin:10px auto;
+      padding: 0px 150px;
+      font-size: 30px;
+      text-align: center;
+      line-height: 100px;
+    }
+    .form_submit{
+      display: block;
+      margin: 10px auto;
+      padding: 0px 200px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .tweet_comment{
+      width:700px;
+      margin: 10px auto;
+      padding: 0px 50px;
+      background-color: beige;
+      font-size: 20px;
+    }
+  }
 }

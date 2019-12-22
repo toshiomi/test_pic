@@ -1,5 +1,5 @@
 $(function () {
-  var search_list = $(".tweet_box");
+  var search_list = $(".tweet_main");
 
   function searchedTweet(hikisuu) {
     var CurrentUserBtn = hikisuu.user_id == hikisuu.current_user_id ?
@@ -14,7 +14,8 @@ $(function () {
       "" : `<img class="tweet_image" src="${hikisuu.image}" width="400" height="300" />
                 `;
 
-    var html = `<i class="fa fa-heart log_out_heart"></i>
+    var html = `<div class="tweet_box">
+    <i class="fa fa-heart log_out_heart"></i>
                   ${hikisuu.like_counts}
                   <button class='tweet_btn'>
                     <a data-method="get" href="/tweets/${hikisuu.id}">詳細</a>
@@ -25,12 +26,13 @@ $(function () {
                   <span class='tweet_text'>${hikisuu.text}</span>
                   <span class='tweet_text'>${hikisuu.personality}</span>
                   <span class='tweet_text'>[努力値] H:${hikisuu.h} A:${hikisuu.a} B:${hikisuu.b} C:${hikisuu.c} D:${hikisuu.d} S:${hikisuu.s}</span>
-                  <span class='tweet_name'>${hikisuu.user_name}</span>`
+                  <span class='tweet_name'>${hikisuu.user_name}</span>
+                  </div>`
     search_list.append(html);
   }
 
   function searchError(message) {
-    var html = `<div class='name'>${message}</div>`
+    var html = `<div class='tweet_box'>${message}</div>`
     search_list.append(html);
   }
 

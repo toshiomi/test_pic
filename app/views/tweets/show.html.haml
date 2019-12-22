@@ -29,4 +29,4 @@
         = f.submit "コメントする", class: "form_submit"
     - if @comments
       - @comments.each do |comment|
-        %span.tweet_text #{comment.user.name}:#{comment.text}
+        .tweet_comment #{comment.user.name}:#{comment.text}
