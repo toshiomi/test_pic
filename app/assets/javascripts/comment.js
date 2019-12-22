@@ -1,8 +1,8 @@
 $(function () {
   function buildHTML(comment) {
-    var html = `<span>
+    var html = `<div class="tweet_comment">
                   ${comment.user_name}:${comment.text}
-                </span>`
+                </div>`
     return html;
   }
   $('#new_comment').on('submit', function (e) {

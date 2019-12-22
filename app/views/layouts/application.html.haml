@@ -13,10 +13,11 @@
         %h1.header_title
           = link_to "テスト", root_path
         .header_btn_box
-          - if user_signed_in?
+          - if user_signed_in? && @tweets.present?
             = form_with url: search_tweets_path, method: :get, local: true do |f|
-              = f.text_field :keyword, placeholder: "検索したい投稿名を入力",class: "search_field"
+              = f.text_field :keyword, placeholder: "検索したい投稿を入力",class: "search_field"
               = f.submit "検索する",class: "search_btn"
+          - if user_signed_in?
             %button.new_btn
               = link_to "新規投稿", new_tweet_path
             %button.user_btn
